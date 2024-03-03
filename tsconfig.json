@@ -3,10 +3,11 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "commonJS",
     "target": "ES6",
     "allowJs": true,
     "esModuleInterop": true
   },
-  "files": ["src/index.tsx"]
+  "files": ["src/index.tsx"],
+  "include": ["src/**/*"]
 }

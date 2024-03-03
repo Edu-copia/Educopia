@@ -2,16 +2,16 @@
   "name": "educopia",
   "version": "1.0.0",
   "description": "My webpack project",
-  "main": "index.tsx",
+  "main": "src/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
-    "start": "NODE_ENV=production ts-node server/server.ts",
+    "start": "NODE_ENV=production ts-node src/server/server.ts",
     "watch": "webpack --watch",
     "serve": "webpack serve",
-    "dev": "NODE_ENV=development nodemon server/server.ts & webpack serve --mode=development"
+    "dev": "NODE_ENV=development nodemon src/server/server.ts & NODE_ENV=development webpack serve"
   },
   "author": "",
   "license": "ISC",
