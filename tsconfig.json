@@ -3,9 +3,10 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "allowJs": true
+    "module": "commonjs",
+    "target": "ES6",
+    "allowJs": true,
+    "esModuleInterop": true
   },
   "files": ["src/index.jsx"]
 }
