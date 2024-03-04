@@ -16,8 +16,9 @@ async function fetchUserData() {
 		return null;
 	}
 }
-router.get("/", (req: Request, res: Response) => {
-	res.json(fetchUserData());
+router.get("/", async (req: Request, res: Response) => {
+	const users = await fetchUserData();
+	res.json(users);
 });
 
 router.post("", (req: Request, res: Response) => {});
