@@ -2,6 +2,7 @@ import express, { Express, Request, Response, NextFunction } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser'
 import apiRouter from './routes/api'
+
 import 'dotenv/config'
 
 const app: Express = express();
