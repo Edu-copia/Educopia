@@ -8,6 +8,6 @@
     "allowJs": true,
     "esModuleInterop": true
   },
-  "files": ["src/index.jsx"],
-  "include": ["src/**/*"]
+  "files": ["client/index.jsx"],
+  "include": ["src/**/*", "client", "server"]
 }
