@@ -13,11 +13,12 @@ app.use(express.json());
 app.use(cookieParser());
 //npm start after build - serves index.html:
 if (process.env.NODE_ENV === 'production') {
+    console.log('in production')
     //statically serve everything in the dist folder on the route '/dist'
-    app.use('/dist', express.static(path.join(__dirname, '../dist/')));
+    app.use('/dist', express.static(path.join(__dirname, '../../dist/')));
     // serve index.html on the route '/'
     app.get('/', (req: Request, res: Response) => {
-        return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+        return res.status(200).sendFile(path.join(__dirname, '../../index.html'));
     })
 }
 
