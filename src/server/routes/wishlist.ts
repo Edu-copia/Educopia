@@ -1,5 +1,5 @@
 import express, { Express, Request, Response, NextFunction } from "express";
-import supabase from "../db";
+import sql from "../db";
 import { wishlistController } from "../controllers/wishlistController";
 const wishlistRouter = express.Router();
 
