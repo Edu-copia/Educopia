@@ -2,10 +2,9 @@ import express, { Express, Request, Response, NextFunction } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser'
 import apiRouter from './routes/api'
-import dotenv from "dotenv";
+import 'dotenv/config'
 
-dotenv.config();
-const app = express();
+const app: Express = express();
 // enable parsing of URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
 //handle request bodies
@@ -42,4 +41,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 //Listening on port 3000
 app.listen(3000, () => { console.log('Listening on port 3000...')});
 //export app
-module.exports = app;
+export default app;
