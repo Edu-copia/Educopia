@@ -16,11 +16,31 @@ async function fetchUserData() {
 		return null;
 	}
 }
+
+async function addUserData(userData: any) {
+	try {
+		const { data, error } = await supabase.from("users").insert([userData]);
+	} catch (error) {
+		console.log("there is an error inputting into DB", error);
+	}
+}
 router.get("/", async (req: Request, res: Response) => {
 	const users = await fetchUserData();
 	res.json(users);
 });
 
-router.post("", (req: Request, res: Response) => {});
+router.post("/add", async (req: Request, res: Response) => {
+	try {
+		const { first_name, last_name, email, password } = req.body;
+		if (!first_name || !last_name || !email || !password) {
+			throw new Error("Missing required fields");
+		}
+		await addUserData({ first_name, last_name, email, password });
+		res.status(201).send("User added successfully");
+	} catch (error) {
+		console.error("An error occurred while adding user:", error);
+		res.status(500).send("Failed to add user");
+	}
+});
 
 export default router;
