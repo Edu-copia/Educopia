@@ -1,13 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
-import postgres from "postgres";
+import postgres, { Sql } from "postgres";
 dotenv.config();
 
-const connectionString = process.env.DATABASE_URL;
-const sql = postgres(connectionString);
+const connectionString: string | undefined = process.env.DATABASE_URL;
+const sql: Sql<{}> = postgres(connectionString as string);
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabaseUrl: string | undefined = process.env.SUPABASE_URL;
+const supabaseKey: string | undefined = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseUrl as string, supabaseKey as string);
 
 export { supabase, sql };
