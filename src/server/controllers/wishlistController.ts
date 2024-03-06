@@ -1,22 +1,28 @@
 import { NextFunction, Request, Response } from "express";
-import supabase from "../db";
+import sql from "../db";
+
 export const wishlistController = {
 	getItems: async (req: Request, res: Response, next: NextFunction) => {
 		try {
-			const { data: itemsNeeded, error } = await supabase.from("items").select(
-				`item_name,
-              wishlist( id, quantity_needed)
-           `
-			);
+			const items = await sql`
+                SELECT 
+								items.item_id,
+								items.item_name,
+								items.current_quantity,
+								items.monthly_quantity_usage,
+								items.item_link,
+								items.teacher_comment,
+								wishlist.quantity_needed
+                FROM
+                    wishlist 
+                INNER JOIN
+                    items ON wishlist.item_id = items.item_id`;
+			res.locals.items = items;
+			console.log(items);
 
-			if (error) {
-				throw new Error("Error fetching items needed: " + error.message);
-			}
-			res.locals = itemsNeeded;
 			next();
-		} catch (error) {
-			console.error("An error occurred while fetching items needed:", error);
-			next(error);
+		} catch (err) {
+			next({ err: "An error occurred while fetching items from wishlist" });
 		}
 	},
 };
