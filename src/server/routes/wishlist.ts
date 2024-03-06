@@ -12,9 +12,14 @@ wishlistRouter.get(
 	}
 );
 
-wishlistRouter.post("/", async (req: Request, res: Response) => {});
+wishlistRouter.post(
+	"/",
+	wishlistController.itemfulfillment,
+	async (req: Request, res: Response) => {
+		res.status(200).json("good to go");
+	}
+);
 
-wishlistRouter.patch("/", async (req: Request, res: Response) => {});
 
 wishlistRouter.delete("/", async (req: Request, res: Response) => {});
 

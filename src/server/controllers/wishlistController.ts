@@ -26,4 +26,39 @@ export const wishlistController = {
 			next({ err: "An error occurred while fetching items from wishlist" });
 		}
 	},
+	itemfulfillment: async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			const {
+				item_id,
+				parent_name,
+				parent_email,
+				quantity_purchased,
+				date_purchased,
+			} = req.body;
+			if (!quantity_purchased) {
+				throw new Error("missing fields required");
+			}
+
+			await sql`
+			INSERT INTO fulfillments (item_id, parent_name, parent_email, quantity_purchased, date_purchased)
+			VALUES (${item_id}, ${parent_name}, ${parent_email}, ${quantity_purchased}, ${date_purchased})
+	`;
+			console.log("added into fulfillments table");
+
+			await sql`
+			UPDATE wishlist
+			SET quantity_needed = quantity_needed - ${quantity_purchased}
+			WHERE item_id = ${item_id}`;
+			console.log("updated wishlist");
+
+			await sql`
+			DELETE FROM wishlist
+			WHERE item_id = ${item_id} AND quantity_needed <= 0`;
+			console.log("Deleted item from wishlist");
+			next();
+		} catch (err) {
+			console.log({ err: "Error inserting into fulfillments table" });
+			next(err);
+		}
+	},
 };
