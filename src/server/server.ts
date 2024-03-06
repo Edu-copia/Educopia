@@ -13,6 +13,7 @@ app.use(express.json());
 //handle cookies
 app.use(cookieParser());
 //npm start after build - serves index.html:
+
 if (process.env.NODE_ENV === "production") {
 	//statically serve everything in the dist folder on the route '/dist'
 	app.use("/dist", express.static(path.join(__dirname, "../dist/")));
@@ -20,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 	app.get("/", (req: Request, res: Response) => {
 		return res.status(200).sendFile(path.join(__dirname, "../index.html"));
 	});
-}
+
 
 //Routes
 app.use("/api", apiRouter);
