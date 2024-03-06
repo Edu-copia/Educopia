@@ -6,8 +6,9 @@
     "module": "commonJS",
     "target": "ES6",
     "allowJs": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
   },
-  "files": ["client/index.jsx"],
-  "include": ["src/**/*", "client", "server"]
+  "files": ["src/index.tsx"],
+  "include": ["src/**/*"],
+  "exclude": ["src"]
 }
