@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import sql from "../db";
+import { sql } from "../db";
 
 export const wishlistController = {
 	getItems: async (req: Request, res: Response, next: NextFunction) => {
@@ -12,7 +12,8 @@ export const wishlistController = {
 								items.monthly_quantity_usage,
 								items.item_link,
 								items.teacher_comment,
-								wishlist.quantity_needed
+								wishlist.quantity_needed,
+								wishlist.wishlist_id
                 FROM
                     wishlist 
                 INNER JOIN

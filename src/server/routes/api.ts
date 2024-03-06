@@ -1,5 +1,5 @@
 import express, { Express, Request, Response, NextFunction } from "express";
-import sql from "../db";
+import { sql } from "../db";
 const router = express.Router();
 
 //set up a quick function to check if the database is connected -JK
