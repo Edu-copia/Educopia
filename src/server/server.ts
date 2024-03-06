@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 	app.get("/", (req: Request, res: Response) => {
 		return res.status(200).sendFile(path.join(__dirname, "../index.html"));
 	});
-
+}
 
 //Routes
 app.use("/api", apiRouter);
