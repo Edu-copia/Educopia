@@ -3,11 +3,11 @@ import "tailwindcss/tailwind.css";
 
 import Sidebar from "../../components/Sidebar";
 
-export default function Dashboard() {
+export default function Profile() {
   return (
     <>
       <Sidebar />
-      <div>This is the dashboard</div>
+      <div>This is the Profile page</div>
     </>
   );
 }

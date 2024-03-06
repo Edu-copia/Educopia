@@ -5,19 +5,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        Educopia: "#605bff",
         primary: {
-            50: "#e4e3ff",
-            100: "#c4c2ff",
-            200: "#a3a0ff",
-            300: "#7f7aff",
-            400: "#605bff",
-            500: "#5447ff",
-            600: "#4639ff",
-            700: "#3a2cff",
-            800: "#2e21ff",
-            900: "#1a0eff",
+          50: "#e4e3ff",
+          100: "#c4c2ff",
+          200: "#a3a0ff",
+          300: "#7f7aff",
+          400: "#605bff",
+          500: "#5447ff",
+          600: "#4639ff",
+          700: "#3a2cff",
+          800: "#2e21ff",
+          900: "#1a0eff",
         },
-    },
+      },
     },
     fontFamily: {
       body: [
