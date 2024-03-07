@@ -15,6 +15,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    publicPath: '/',
   },
   devServer: {
     open: true,
@@ -25,6 +26,7 @@ const config = {
         target: "http://localhost:3000",
       },
     ],
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
