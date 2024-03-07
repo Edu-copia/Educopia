@@ -12,6 +12,9 @@ wishlistRouter.get(
 	}
 );
 
+//route to get specific item when clicked on component
+wishlistRouter.get(`/`);
+
 wishlistRouter.post(
 	"/",
 	wishlistController.itemfulfillment,
@@ -20,7 +23,9 @@ wishlistRouter.post(
 	}
 );
 
-
-wishlistRouter.delete("/", async (req: Request, res: Response) => {});
+wishlistRouter.delete("/", async (req: Request, res: Response) => {
+	//delete from inventory
+	//item_id
+});
 
 export default wishlistRouter;

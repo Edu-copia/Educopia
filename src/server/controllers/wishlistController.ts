@@ -23,7 +23,7 @@ export const wishlistController = {
 
 			next();
 		} catch (err) {
-			next({ err: "An error occurred while fetching items from wishlist" });
+			next(err.message);
 		}
 	},
 	itemfulfillment: async (req: Request, res: Response, next: NextFunction) => {
@@ -57,8 +57,10 @@ export const wishlistController = {
 			console.log("Deleted item from wishlist");
 			next();
 		} catch (err) {
-			console.log({ err: "Error inserting into fulfillments table" });
-			next(err);
+			if (err.message.includes("INSERT INTO fulfillments")) {
+				throw new Error("Error inserting into fulfillments table");
+			}
+			next(err.message);
 		}
 	},
 };
