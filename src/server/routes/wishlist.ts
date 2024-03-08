@@ -12,10 +12,26 @@ wishlistRouter.get(
 	}
 );
 
-wishlistRouter.post("/", async (req: Request, res: Response) => {});
+//route to get specific item when clicked on component
+wishlistRouter.get(
+	`/:id`,
+	wishlistController.getOneItem,
+	async (req: Request, res: Response) => {
+		res.status(200).json(res.locals.item);
+	}
+);
 
-wishlistRouter.patch("/", async (req: Request, res: Response) => {});
+wishlistRouter.post(
+	"/",
+	wishlistController.itemfulfillment,
+	async (req: Request, res: Response) => {
+		res.status(200).json("good to go");
+	}
+);
 
-wishlistRouter.delete("/", async (req: Request, res: Response) => {});
+wishlistRouter.delete("/", async (req: Request, res: Response) => {
+	//delete from wishlist if item is deleted from inventory
+	//item_id
+});
 
 export default wishlistRouter;
