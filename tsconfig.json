@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "commonJS",
+    "target": "ES6",
+    "allowJs": true,
+    "esModuleInterop": true,
+  },
+  "files": ["src/index.tsx"],
+  "include": ["src/**/*"],
+  "exclude": ["src"]
+}
