@@ -26,6 +26,31 @@ export const wishlistController = {
 			next(err.message);
 		}
 	},
+	getOneItem: async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			const { id } = req.params;
+			console.log("this is the id", id);
+			const item = await sql`
+			SELECT 
+			items.item_id,
+			items.item_name,
+			items.current_quantity,
+			items.monthly_quantity_usage,
+			items.item_link,
+			items.teacher_comment,
+			wishlist.quantity_needed,
+			wishlist.wishlist_id
+			FROM
+				wishlist 
+			INNER JOIN
+				items ON wishlist.item_id = items.${id}`;
+			// console.log(item);
+			res.locals.item = item;
+			next();
+		} catch (err) {
+			console.log;
+		}
+	},
 	itemfulfillment: async (req: Request, res: Response, next: NextFunction) => {
 		try {
 			const {
@@ -57,10 +82,7 @@ export const wishlistController = {
 			console.log("Deleted item from wishlist");
 			next();
 		} catch (err) {
-			if (err.message.includes("INSERT INTO fulfillments")) {
-				throw new Error("Error inserting into fulfillments table");
-			}
-			next(err.message);
+			next(err);
 		}
 	},
 };
