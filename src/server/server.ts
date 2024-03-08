@@ -2,10 +2,15 @@ import express, { Express, Request, Response, NextFunction } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser'
 import apiRouter from './routes/api'
+import itemRouter from './routes/item'
 import 'dotenv/config'
 
 const app: Express = express();
 // enable parsing of URL-encoded form data
+
+const cors = require('cors');
+app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 //handle request bodies
 app.use(express.json());
@@ -24,6 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 
 //Routes
 app.use('/api', apiRouter)
+app.use('/item', itemRouter)
 //Page Not Found
 app.use('*', (req: Request, res: Response) => {
     res.status(404).send('Not Found');
