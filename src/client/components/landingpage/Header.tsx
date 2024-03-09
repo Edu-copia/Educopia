@@ -1,5 +1,7 @@
 import React from "react";
 import "tailwindcss/tailwind.css";
+import {Link} from 'react-router-dom';
+
 
 export default function Header() {
   return (
@@ -19,18 +21,14 @@ export default function Header() {
               </span>
             </a>
             <div className="flex items-center lg:order-2">
-              <a
-                href="/login"
-                className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+              <Link to ="/login" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
               >
-                Log in
-              </a>
-              <a
-                href="/signup"
-                className="text-white bg-primary-500 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-400 dark:hover:bg-primary-500 focus:outline-none dark:focus:ring-primary-600"
+               Log in
+              </Link>
+              <Link to ="/signup" className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
               >
-                Sign Up
-              </a>
+               Sign up 
+              </Link>
             </div>
           </div>
         </nav>
