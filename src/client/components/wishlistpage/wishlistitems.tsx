@@ -14,7 +14,6 @@ const WishlistItems: React.FC = () => {
 	const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
 
 	const onClick = (item_id: number) => {
-		console.log("this is the item id", item_id);
 		navigate("/wishlist-details", { state: { item_id } });
 	};
 
@@ -37,7 +36,6 @@ const WishlistItems: React.FC = () => {
 				a.current_quantity / a.monthly_quantity_usage -
 				b.current_quantity / b.monthly_quantity_usage
 		);
-	console.log(sortedItems);
 
 	return (
 		<div className="flex flex-wrap justify-center">
