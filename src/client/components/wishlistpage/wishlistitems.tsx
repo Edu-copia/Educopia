@@ -2,22 +2,24 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-interface WISHLISTITEMS {
+interface WishlistItem {
 	item_id: number;
 	item_name: string;
 }
 
-const WishlistItems = () => {
+const WishlistItems: React.FC = () => {
 	const navigate = useNavigate();
-	const [wishlistItems, setWishlistItems] = useState<WISHLISTITEMS[]>([]);
-	const onClick = (item_id: Number) => {
+	const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
+
+	const onClick = (item_id: number) => {
 		console.log("this is the item id", item_id);
 		navigate("/wishlist-details", { state: { item_id } });
 	};
+
 	useEffect(() => {
 		const fetchWishlistItems = async () => {
 			try {
-				const response = await axios.get("/api/wishlist");
+				const response = await axios.get<WishlistItem[]>("/api/wishlist");
 				setWishlistItems(response.data);
 			} catch (error) {
 				console.error("Error fetching wishlist items:", error);
