@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ItemType } from "./ItemType";
+import { ItemType } from "../ItemType";
 
 interface ItemListEditProps {
   itemId: number;

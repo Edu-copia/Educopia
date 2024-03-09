@@ -1,5 +1,5 @@
 import React from "react";
-import { ItemType } from "./ItemType";
+import { ItemType } from "../ItemType";
 import { ItemListDelete } from "./ItemListDelete";
 import { ItemListEdit } from "./ItemListEdit";
 
@@ -7,7 +7,7 @@ interface ItemProps {
   itemData: ItemType;
 }
 
-export const Item: React.FC<ItemProps> = ({ itemData }) => {
+export const ItemListDetails: React.FC<ItemProps> = ({ itemData }) => {
   return (
     <div>
       <div>{itemData.item_name}</div>

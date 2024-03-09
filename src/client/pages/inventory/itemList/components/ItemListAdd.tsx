@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ItemType } from "./ItemType";
+import { ItemType } from "../ItemType";
 
 export const ItemListAdd: React.FC = () => {
   const [itemForm, setItemForm] = useState<Partial<ItemType>>({});
