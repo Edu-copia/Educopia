@@ -17,11 +17,8 @@ const config = {
     filename: "bundle.js",
   },
   devServer: {
-    static: {
-      publicPath: '/',
-      directory: path.resolve(__dirname, '/dist')
-    },
     open: true,
+    host: "localhost",
     proxy: [
       {
         context: ["/api"],
@@ -61,7 +58,6 @@ const config = {
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js"],
   },
-  devtool: 'source-map'
 };
 
 module.exports = () => {
