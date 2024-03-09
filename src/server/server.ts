@@ -47,3 +47,18 @@ app.listen(3000, () => {
 });
 //export app
 export default app;
+
+//Global Error Handler
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+    const defaultErr = {
+        log: 'unknown error handler caught in middleware',
+        status: 400,
+        message: { err: 'An error occured' },
+    }
+    const errorObj = Object.assign({}, defaultErr, err);
+    return res.status(errorObj.status).send(errorObj.message);
+})
+//Listening on port 3000
+app.listen(3000, () => { console.log('Listening on port 3000...')});
+//export app
+export default app;

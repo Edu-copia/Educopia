@@ -1,10 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import "tailwindcss/tailwind.css";
 
@@ -15,30 +12,30 @@ import Wishlist from "./client/pages/wishlist/wishlist";
 import Profile from "./client/pages/profile/profile";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <LandingPage />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
-  {
-    path: "/dashboard/inventory",
-    element: <Inventory />,
-  },
-  {
-    path: "/dashboard/wishlist",
-    element: <Wishlist />,
-  },
-  {
-    path: "/dashboard/profile",
-    element: <Profile />,
-  },
+	{
+		path: "/",
+		element: <LandingPage />,
+	},
+	{
+		path: "/dashboard",
+		element: <Dashboard />,
+	},
+	{
+		path: "/inventory",
+		element: <Inventory />,
+	},
+	{
+		path: "/wishlist",
+		element: <Wishlist />,
+	},
+	{
+		path: "/profile",
+		element: <Profile />,
+	},
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-      <RouterProvider router={router} />
-  </React.StrictMode>
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
 );
