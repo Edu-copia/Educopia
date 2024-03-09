@@ -6,24 +6,33 @@ export default function WishlistDetails() {
   const location = useLocation();
   //change this to: const itemId = location.state.item;
   const itemId = 7;
-  const [item, setItem] = useState(null)
+  const [item, setItem] = useState(null);
+  const [itemFullfilled, setItemFullfilled] = useState({
+      item_id: null,
+      parent_name: '',
+      parent_email: '',
+      quantity_purchased: 0,
+      date_purchased: new Date()
+  })
 
+ //Need to add 'decrement items quantity' route as well.
  function handleSubmit(e: React.FormEvent){
     e.preventDefault()
-
-    const itemFullfilled = {
-
+    if(itemFullfilled.item_id !== null && itemFullfilled.parent_name !== null && itemFullfilled.quantity_purchased !== null){
+      fetch('/api/wishlist/', {
+        method: "POST",
+        body: JSON.stringify(itemFullfilled),
+        headers: {"Content-Type": "application/json"},
+      })
+      .then(res => res.json())
+      .then(res => {
+        
+      })
+      .catch(e => console.log('Error submitting fulfillment: ', e))
     }
-    fetch('', {
-      method: "POST",
-      body: JSON.stringify(''),
-      headers: {"Content-Type": "application/json"},
-    })
-    .then(res => res.json())
-    .then(res => {
-      
-    })
-    .catch(e => console.log('Error submitting fulfillment: ', e))
+    else{
+      alert('Please fill out the entire form!')
+    }
   }
 
   useEffect(() => {
@@ -43,7 +52,7 @@ export default function WishlistDetails() {
       </div>
       <h1 className='text-left pl-8 pt-8 text-3xl font-extrabold'>Wishlist Details</h1>
       <section className='flex justify-center'>
-
+        {item.item_id}
       </section>
     </div>
   )
