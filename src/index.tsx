@@ -13,6 +13,7 @@ import Dashboard from "./client/pages/dashboard/dashboard";
 import Inventory from "./client/pages/inventory/inventory";
 import Wishlist from "./client/pages/wishlist/wishlist";
 import Profile from "./client/pages/profile/profile";
+import WishlistDetails from './client/pages/wishlist/wishlist-details';
 
 const router = createBrowserRouter([
   {
@@ -20,20 +21,24 @@ const router = createBrowserRouter([
     element: <LandingPage />,
   },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
-  {
     path: "/dashboard/inventory",
     element: <Inventory />,
   },
   {
-    path: "/dashboard/wishlist",
+    path: "/wishlist",
     element: <Wishlist />,
+  },
+  {
+    path: "/wishlist-details",
+    element: <WishlistDetails />,
   },
   {
     path: "/dashboard/profile",
     element: <Profile />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);
 

@@ -7,6 +7,9 @@
     "target": "ES6",
     "allowJs": true,
     "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "files": ["src/index.tsx"],
   "include": ["src/**/*"],
