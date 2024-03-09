@@ -7,6 +7,10 @@ import fulfillmentsRouter from "./routes/fulfillments"
 import "dotenv/config";
 
 const app: Express = express();
+
+const cors = require('cors');
+app.use(cors());
+
 // enable parsing of URL-encoded form data
 app.use(express.urlencoded({ extended: true }));
 //handle request bodies
