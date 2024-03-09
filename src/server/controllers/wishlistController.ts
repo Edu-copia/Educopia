@@ -30,7 +30,9 @@ export const wishlistController = {
 			SELECT 
 			item_name,
 			item_link,
-			teacher_comment
+			teacher_comment,
+			current_quantity,
+			monthly_quantity_usage
 			FROM
 			items
 			WHERE
