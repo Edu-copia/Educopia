@@ -4,13 +4,15 @@ import cookieParser from "cookie-parser";
 import apiRouter from "./routes/api";
 import wishlistRouter from "./routes/wishlist";
 import itemRouter from './routes/item'
+import fulfillmentsRouter from "./routes/fulfillments"
 import "dotenv/config";
 
 const app: Express = express();
-// enable parsing of URL-encoded form data
 
 const cors = require('cors');
 app.use(cors());
+
+// enable parsing of URL-encoded form data
 
 app.use(express.urlencoded({ extended: true }));
 //handle request bodies
@@ -32,6 +34,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api", apiRouter);
 app.use("/api/wishlist", wishlistRouter);
 app.use('/item', itemRouter)
+app.use("/fulfillments", fulfillmentsRouter);
 //Page Not Found
 app.use("*", (req: Request, res: Response) => {
 	res.status(404).send("Not Found");
