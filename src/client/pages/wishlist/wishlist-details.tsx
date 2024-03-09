@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom";
 
 export default function wishlistDetails() {
+
+  const location = useLocation();
+  const itemId = location.state.item;
+
+  useEffect(() => {
+    fetch('localhost:3000/api/IN')
+  }, )
+
   return (
     <div>
       <section id='details'>
