@@ -10,5 +10,6 @@
   },
   "files": ["src/index.tsx"],
   "include": ["src/**/*"],
-  "exclude": ["src"]
+  // "exclude": ["src"]
+  "exclude": ["node_modules"] 
 }
