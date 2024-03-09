@@ -6,7 +6,5 @@ interface FulfillmentsProps {
 }
 
 export const FulfillmentsListAdd = () => {
-  return (
-    <div></div>
-  );
+  return <div></div>;
 };

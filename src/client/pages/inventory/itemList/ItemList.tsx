@@ -6,8 +6,8 @@ export const ItemList: React.FC = () => {
 
   return (
     <div>
-      <ItemListView/>
-      <ItemListAdd/>
+      <div><ItemListView/></div>
+      <div className="mt-12 text-center"><ItemListAdd/></div>
     </div>
   );
 };

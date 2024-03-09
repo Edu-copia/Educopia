@@ -10,8 +10,10 @@ export default function Inventory() {
       <div className="w-full flex-none md:w-64">
         <Sidebar />
       </div>
-      <ItemList/>
-      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">This is the Inventory Page </div>
+      <div className="w-full text-center">
+        <div className="text-4xl font-bold my-16">Inventory</div>
+        <div className="w-full text-center align-center"><ItemList/></div>
+      </div>
     </div>
   );
 }

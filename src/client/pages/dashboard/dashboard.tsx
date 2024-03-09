@@ -10,9 +10,15 @@ export default function Dashboard() {
       <div className="w-full flex-none md:w-64">
         <Sidebar />
       </div>
-      <FulfillmentsList/>
-      <PriorityItemList/>
-      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">This is the dashboard </div>
+      <div className="w-full text-center">
+        <div className="text-4xl font-bold my-16">Dashboard</div>
+      <div className="mb-24">
+        <FulfillmentsList/>
+      </div>
+      <div className="">
+        <PriorityItemList/>
+      </div>
+     </div>
     </div>
   );
 }
