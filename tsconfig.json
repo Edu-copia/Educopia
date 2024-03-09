@@ -10,6 +10,6 @@
   },
   "files": ["src/index.tsx"],
   "include": ["src/**/*"],
-  // "exclude": ["src"]
-  "exclude": ["node_modules"] 
+  "exclude": ["src"]
+  // "exclude": ["node_modules"] 
 }
