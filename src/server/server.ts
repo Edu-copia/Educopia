@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import apiRouter from "./routes/api";
 import wishlistRouter from "./routes/wishlist";
 import itemRouter from './routes/item'
+import authRouter from "./routes/authRouter";
 import fulfillmentsRouter from "./routes/fulfillments"
 import "dotenv/config";
 
@@ -31,10 +32,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Routes
-app.use("/api", apiRouter);
 app.use("/api/wishlist", wishlistRouter);
 app.use('/item', itemRouter)
 app.use("/fulfillments", fulfillmentsRouter);
+app.use("/api", authRouter)
 //Page Not Found
 app.use("*", (req: Request, res: Response) => {
 	res.status(404).send("Not Found");
