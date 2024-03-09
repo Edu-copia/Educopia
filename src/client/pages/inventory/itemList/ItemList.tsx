@@ -1,6 +1,6 @@
 import React from "react";
-import { ItemListView } from "./ItemListView";
-import { ItemListAdd } from "./ItemListAdd";
+import { ItemListView } from "./components/ItemListView";
+import { ItemListAdd } from "./components/ItemListAdd";
 
 export const ItemList: React.FC = () => {
 

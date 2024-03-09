@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Item } from "./ItemListDetails";
-import { ItemType } from "./ItemType";
+import { ItemListDetails } from "./ItemListDetails";
+import { ItemType } from "../ItemType";
 
 export const ItemListView: React.FC = () => {
   const [items, setItems] = useState<ItemType[]>([]);
@@ -18,7 +18,7 @@ export const ItemListView: React.FC = () => {
   return (
     <div>
       {items.map((item) => (
-        <Item key={item.item_id} itemData={item} />
+        <ItemListDetails key={item.item_id} itemData={item} />
       ))}
     </div>
   );
