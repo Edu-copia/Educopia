@@ -6,59 +6,50 @@ import wishlistRouter from "./routes/wishlist";
 import "dotenv/config";
 
 const app: Express = express();
-// enable parsing of URL-encoded form data
-app.use(express.urlencoded({ extended: true }));
-//handle request bodies
-app.use(express.json());
-//handle cookies
-app.use(cookieParser());
-//npm start after build - serves index.html:
 
+// Enable parsing of URL-encoded form data
+app.use(express.urlencoded({ extended: true }));
+// Handle request bodies
+app.use(express.json());
+// Handle cookies
+app.use(cookieParser());
+
+// Serve static assets in production mode
 if (process.env.NODE_ENV === "production") {
-	//statically serve everything in the dist folder on the route '/dist'
-	app.use("/dist", express.static(path.join(__dirname, "../dist/")));
-	// serve index.html on the route '/'
-	app.get("/", (req: Request, res: Response) => {
+	// Serve the bundled JavaScript and other static assets from the "dist" folder
+	app.use("/dist", express.static(path.join(__dirname, "../dist")));
+
+	// Serve the main HTML file for all routes
+	app.get("*", (req: Request, res: Response) => {
 		return res.status(200).sendFile(path.join(__dirname, "../index.html"));
 	});
 }
 
-//Routes
+// Routes
 app.use("/api", apiRouter);
 app.use("/api/wishlist", wishlistRouter);
-//Page Not Found
+
+// Page Not Found (404)
 app.use("*", (req: Request, res: Response) => {
 	res.status(404).send("Not Found");
 });
 
-//Global Error Handler
+// Global Error Handler
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 	const defaultErr = {
 		log: "unknown error handler caught in middleware",
 		status: 400,
-		message: { err: "An error occured" },
+		message: { err: "An error occurred" },
 	};
 	const errorObj = Object.assign({}, defaultErr, err);
 	return res.status(errorObj.status).send(errorObj.message);
 });
-//Listening on port 3000
-app.listen(3000, () => {
-	console.log("Listening on port 3000...");
-});
-//export app
-export default app;
 
-//Global Error Handler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    const defaultErr = {
-        log: 'unknown error handler caught in middleware',
-        status: 400,
-        message: { err: 'An error occured' },
-    }
-    const errorObj = Object.assign({}, defaultErr, err);
-    return res.status(errorObj.status).send(errorObj.message);
-})
-//Listening on port 3000
-app.listen(3000, () => { console.log('Listening on port 3000...')});
-//export app
+// Listening on port 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+	console.log(`Listening on port ${PORT}...`);
+});
+
+// Export the app
 export default app;
