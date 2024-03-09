@@ -31,7 +31,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Routes
-app.use("/api", apiRouter);
 app.use("/api/wishlist", wishlistRouter);
 app.use('/item', itemRouter)
 app.use("/fulfillments", fulfillmentsRouter);

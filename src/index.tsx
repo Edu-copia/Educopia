@@ -10,6 +10,7 @@ import Dashboard from "./client/pages/dashboard/dashboard";
 import Inventory from "./client/pages/inventory/inventory";
 import Wishlist from "./client/pages/wishlist/wishlist";
 import Profile from "./client/pages/profile/profile";
+import WishlistDetails from './client/pages/wishlist/wishlist-details';
 import LoginPage from "./client/pages/auth/login";
 import SignupPage from "./client/pages/auth/signup";
 import SuccessPage from "./client/pages/auth/success";
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
 		element: <Wishlist />,
 	},
 	{
+		path: "/wishlist-details",
+		element: <WishlistDetails />,
+	},
+	{
 		path: "/profile",
 		element: <Profile />,
 	},
@@ -46,10 +51,6 @@ const router = createBrowserRouter([
 	{
 		path: "/success",
 		element: <SuccessPage />,
-	},
-	{
-		path: "/",
-		element: <LandingPage />,
 	},
 ]);
 
