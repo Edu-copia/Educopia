@@ -1,27 +1,33 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formValues, setFormValues] = useState({
+    email: "",
+    password: "",
+  });
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    try {
+      await axios.post("/api/login", formValues);
+      alert("Successfully logged in!");
+      navigate("/dashboard");
+    } catch (error) {
+      alert(`Login Failed! Please try again. ${error.message}`);
+    }
+  };
+  
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+    setFormValues({ ...formValues, email: e.target.value });
   };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    console.log("Email:", email);
-    console.log("Password:", password);
-
-    navigate("/success");
+    setFormValues({ ...formValues, password: e.target.value });
   };
 
   return (
@@ -37,7 +43,7 @@ const LoginPage: React.FC = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="email"
               id="email"
-              value={email}
+              value={formValues.email}
               onChange={handleEmailChange}
             />
           </div>
@@ -49,7 +55,7 @@ const LoginPage: React.FC = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="password"
               id="password"
-              value={password}
+              value={formValues.password}
               onChange={handlePasswordChange}
             />
           </div>
@@ -63,7 +69,7 @@ const LoginPage: React.FC = () => {
           </div>
         </form>
         <p>
-          Don't have an account? <Link to="http://localhost:8080/signup">Sign up</Link>
+          Don't have an account? <Link to="/signup">Sign up</Link>
         </p>
       </div>
     </div>
