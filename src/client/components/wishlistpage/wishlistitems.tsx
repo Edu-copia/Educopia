@@ -5,6 +5,8 @@ import axios from "axios";
 interface WishlistItem {
 	item_id: number;
 	item_name: string;
+	current_quantity: number;
+	monthly_quantity_usage: number;
 }
 
 const WishlistItems: React.FC = () => {
@@ -28,9 +30,18 @@ const WishlistItems: React.FC = () => {
 		fetchWishlistItems();
 	}, []);
 
+	const sortedItems = wishlistItems
+		.slice()
+		.sort(
+			(a, b) =>
+				a.current_quantity / a.monthly_quantity_usage -
+				b.current_quantity / b.monthly_quantity_usage
+		);
+	console.log(sortedItems);
+
 	return (
 		<div className="flex flex-wrap justify-center">
-			{wishlistItems.map((item) => (
+			{sortedItems.map((item) => (
 				<div
 					key={item.item_id}
 					className="w-64 h-64 m-4 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-400 cursor-pointer"
