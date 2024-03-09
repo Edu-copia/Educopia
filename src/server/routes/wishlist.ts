@@ -3,6 +3,15 @@ import { sql } from "../db";
 import { wishlistController } from "../controllers/wishlistController";
 const wishlistRouter = express.Router();
 
+//route to get specific item when clicked on component
+wishlistRouter.get(
+	`/:id`,
+	wishlistController.getOneItem,
+	async (req: Request, res: Response) => {
+		res.status(200).json(res.locals.item);
+	}
+);
+
 //route to show all the items in the wishlist DB
 wishlistRouter.get(
 	"/",
@@ -12,14 +21,6 @@ wishlistRouter.get(
 	}
 );
 
-//route to get specific item when clicked on component
-wishlistRouter.get(
-	`/:id`,
-	wishlistController.getOneItem,
-	async (req: Request, res: Response) => {
-		res.status(200).json(res.locals.item);
-	}
-);
 
 wishlistRouter.post(
 	"/",
