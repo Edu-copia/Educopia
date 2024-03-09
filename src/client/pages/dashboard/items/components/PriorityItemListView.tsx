@@ -17,7 +17,10 @@ export const PriorityItemListView: React.FC = () => {
 
   return (
     <div>
-      {items.map((item) => (
+      {items
+      .slice() // Create a shallow copy to avoid mutating the original array
+      .sort((a, b) => (a.current_quantity / a.monthly_quantity_usage) - (b.current_quantity / b.monthly_quantity_usage))
+      .map((item) => (
         <PriorityItemListDetails key={item.item_id} itemData={item} />
       ))}
     </div>

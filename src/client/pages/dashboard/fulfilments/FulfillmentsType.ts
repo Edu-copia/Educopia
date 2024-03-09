@@ -4,5 +4,5 @@ export interface FulfillmentsType {
     parent_name: string;
     parent_email: string;
     quantity_purchased: number;
-    data_purchased: string;
+    date_purchased: string;
 }

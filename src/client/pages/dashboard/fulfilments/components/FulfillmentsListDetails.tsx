@@ -11,7 +11,7 @@ export const FulfillmentsListDetails: React.FC<FulfillmentsProps> = ({ fulfillme
       <div>{fulfillmentsData.item_id}</div>
       <div>{fulfillmentsData.quantity_purchased}</div>
       <div>{fulfillmentsData.parent_email}</div>
-      <div>{fulfillmentsData.data_purchased}</div>
+      <div>{fulfillmentsData.date_purchased}</div>
     </div>
   );
 };

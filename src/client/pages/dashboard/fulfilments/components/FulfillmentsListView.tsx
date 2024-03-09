@@ -14,11 +14,13 @@ export const FulfillmentsListView: React.FC = () => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
+  
   return (
     <div>
-      {items.map((fulfillment) => (
-        <FulfillmentsListDetails key={fulfillment.fulfillment_id} fulfillmentsData={fulfillment} />
+      {items.slice()
+      .sort((a, b) => b.fulfillment_id - a.fulfillment_id)
+      .map((fulfillment) => (
+      <FulfillmentsListDetails key={fulfillment.fulfillment_id} fulfillmentsData={fulfillment} />
       ))}
     </div>
   );

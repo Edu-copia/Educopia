@@ -14,9 +14,6 @@ app.use(cors());
 
 // enable parsing of URL-encoded form data
 
-const cors = require('cors');
-app.use(cors());
-
 app.use(express.urlencoded({ extended: true }));
 //handle request bodies
 app.use(express.json());
