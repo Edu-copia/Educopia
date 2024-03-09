@@ -13,7 +13,7 @@ export const wishlistController = {
 			FROM
 			items
 			WHERE
-			current_quantity/monthly_quantity_usage <= 2`;
+			FLOOR(current_quantity/monthly_quantity_usage) <= 2`;
 			res.locals.items = items;
 			console.log(items);
 
