@@ -6,8 +6,8 @@ import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 export default function WishlistDetails() {
   const navigate = useNavigate();
   const location = useLocation();
-  //change this to: const itemId = location.state.item;
-  const itemId = 1;
+  const itemId = location.state.item;
+  //const itemId = 1;
   const [item, setItem] = useState(null);
   const [modal, setModal] = useState(false);
   const [itemsNeeded, setItemsNeeded] = useState(0);
