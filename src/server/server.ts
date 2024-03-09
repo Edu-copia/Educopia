@@ -3,6 +3,7 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import apiRouter from "./routes/api";
 import wishlistRouter from "./routes/wishlist";
+import fulfillmentsRouter from "./routes/fulfillments"
 import "dotenv/config";
 
 const app: Express = express();
@@ -26,6 +27,7 @@ if (process.env.NODE_ENV === "production") {
 //Routes
 app.use("/api", apiRouter);
 app.use("/api/wishlist", wishlistRouter);
+app.use("/fulfillments", fulfillmentsRouter);
 //Page Not Found
 app.use("*", (req: Request, res: Response) => {
 	res.status(404).send("Not Found");
