@@ -33,6 +33,10 @@ const router = createBrowserRouter([
 		element: <Wishlist />,
 	},
 	{
+		path: "/wishlist-details",
+		element: <WishlistDetails />,
+	},
+	{
 		path: "/profile",
 		element: <Profile />,
 	},
@@ -47,10 +51,6 @@ const router = createBrowserRouter([
 	{
 		path: "/success",
 		element: <SuccessPage />,
-	},
-	{
-		path: "/",
-		element: <LandingPage />,
 	},
 ]);
 
