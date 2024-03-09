@@ -1,5 +1,6 @@
 import React from "react";
 import "tailwindcss/tailwind.css";
+import { ItemList } from "./itemList/ItemList";
 
 import Sidebar from "../../components/Sidebar";
 
@@ -9,7 +10,7 @@ export default function Inventory() {
       <div className="w-full flex-none md:w-64">
         <Sidebar />
       </div>
-      {/* PUT YOUR CONTENT IN THIS DIV TO LOAD CORRECTLY WITH THE SIDEBAR */}
+      <ItemList/>
       <div className="flex-grow p-6 md:overflow-y-auto md:p-12">This is the Inventory Page </div>
     </div>
   );
